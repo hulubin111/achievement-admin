@@ -19,3 +19,8 @@ export const editStudentInfo = (id, data) => {
 export const addPerInfo = (data) => {
   return request.post('/userInfo/add', data)
 }
+
+// 查看个人成绩
+export const getScore = (userId) => {
+  return request.get(`/physicalFitness/searchByStudentUserId/${userId}`)
+}

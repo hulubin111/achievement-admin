@@ -10,7 +10,6 @@ router.beforeEach((to, from, next) => {
       next(false)
     } else {
       if (resultRoutes.length === 0) {
-        console.log('被拦截了', to.path, from.path)
         store.dispatch('resultRoutes')
         next()
       } else {

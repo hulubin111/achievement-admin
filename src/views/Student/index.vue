@@ -12,7 +12,18 @@
         />
       </div>
 
-      <TableList :tdata="tableData" :total="total" @currentchange="currentchange" />
+      <TableList v-loading="tloading" class="box" :tdata="tableData" :total="total" border @currentchange="currentchange">
+
+        <!-- :handleshow="true" -->
+        <!-- <template #handle="scope">
+
+          <el-button
+            size="mini"
+            type="danger"
+            @click="handleDelete(scope.iteminfo.$index, scope.iteminfo.row)"
+          >删除</el-button>
+        </template> -->
+      </TableList>
     </el-card>
 
   </div>
@@ -23,6 +34,7 @@ export default {
   name: 'Student',
   data() {
     return {
+      tloading: false,
       // 条件查询学生信息
       studentParams: {
         currentPage: 1,
@@ -93,15 +105,28 @@ export default {
     },
     // 获取学生信息
     async initStudentInfo() {
+      this.tloading = true
       const result = await this.$API.student.getStudentInfo(this.studentParams)
       // console.log(result)
       this.tableData = result.records
       this.total = result.total
+      this.tloading = false
     },
     currentchange(p) {
       this.studentParams.currentPage = p
       this.initStudentInfo()
     }
+    // async handleDelete(i, r) {
+    //   await this.$API.teacher.deleteUserInfo(r.id)
+    //   if (this.tableData.length === 1 && this.studentParams.currentPage > 1) {
+    //     this.studentParams.currentPage--
+    //   }
+    //   this.initStudentInfo()
+    //   this.$message({
+    //     message: '删除成功',
+    //     type: 'success'
+    //   })
+    // }
   }
 }
 </script>

@@ -44,3 +44,14 @@ export const getStudentData = (params) => {
 export const addStudentData = (data) => {
   return request.post('/physicalFitness/add', data)
 }
+
+// 删除学生体测成绩
+export const deleteData = (id) => {
+  return request.delete(`/physicalFitness/delete/${id}`)
+}
+
+// 删除老师信息
+
+export const deleteUserInfo = (id) => {
+  return request.delete(`/delete/${id}`)
+}

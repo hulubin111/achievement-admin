@@ -29,7 +29,7 @@ export const constantRoutes = [
         path: 'home',
         name: 'Home',
         component: () => import('@/views/Home'),
-        meta: { title: '首页', icon: 'dashboard', requireAuth: true }
+        meta: { title: '首页', icon: 'el-icon-s-home', requireAuth: true }
       }
     ]
   }
@@ -50,7 +50,7 @@ export const asyncRoutes = [
         path: 'userman',
         name: 'User',
         component: () => import('@/views/User'),
-        meta: { title: '用户管理', icon: 'dashboard', requireAuth: true }
+        meta: { title: '用户管理', icon: 'el-icon-s-custom', requireAuth: true }
       }
     ]
   },
@@ -58,20 +58,20 @@ export const asyncRoutes = [
     path: '/studentandteacherinfo',
     component: Layout,
     name: 'SandTea',
-    meta: { title: '师生信息管理', icon: 'dashboard', admin: true },
+    meta: { title: '师生信息管理', icon: 'el-icon-info', admin: true },
     redirect: '/studentandteacherinfo/student',
     children: [
       {
         path: 'student',
         name: 'Student',
         component: () => import('@/views/Student'),
-        meta: { title: '学生信息管理', icon: 'dashboard', requireAuth: true }
+        meta: { title: '学生信息管理', icon: 'el-icon-milk-tea', requireAuth: true }
       },
       {
         path: 'teacher',
         name: 'Teacher',
         component: () => import('@/views/Teacher'),
-        meta: { title: '教师信息管理', icon: 'dashboard', requireAuth: true }
+        meta: { title: '教师信息管理', icon: 'el-icon-goblet-square-full', requireAuth: true }
       }
     ]
   },
@@ -80,19 +80,19 @@ export const asyncRoutes = [
     component: Layout,
     name: 'GradeAndTeacher',
     redirect: '/gradeandteacher/grade',
-    meta: { title: '班级和教师管理', icon: 'dashboard', admin: true },
+    meta: { title: '班级和教师管理', icon: 'el-icon-s-goods', admin: true },
     children: [
       {
         path: 'grade',
         name: 'Grade',
         component: () => import('@/views/Grade'),
-        meta: { title: '班级管理', icon: 'dashboard', requireAuth: true }
+        meta: { title: '班级管理', icon: 'el-icon-document-copy', requireAuth: true }
       },
       {
         path: 'gradesteachers',
         name: 'GradeTeacher',
         component: () => import('@/views/GradeAndTeacher'),
-        meta: { title: '班级分配教师管理', icon: 'dashboard', requireAuth: true }
+        meta: { title: '班级分配教师管理', icon: 'el-icon-monitor', requireAuth: true }
       }
     ]
   },
@@ -106,7 +106,21 @@ export const asyncRoutes = [
         path: 'pdata',
         name: 'Data',
         component: () => import('@/views/Data'),
-        meta: { title: '体侧数据管理', icon: 'dashboard', requireAuth: true }
+        meta: { title: '体侧数据管理', icon: 'el-icon-s-check', requireAuth: true }
+      }
+    ]
+  },
+  {
+    path: '/studentscore',
+    name: 'Score',
+    component: Layout,
+    meta: { student: true },
+    children: [
+      {
+        path: '',
+        name: 'Score',
+        component: () => import('@/views/StudentScore'),
+        meta: { title: '体测成绩', icon: 'el-icon-s-management', requireAuth: true }
       }
     ]
   },
@@ -120,7 +134,7 @@ export const asyncRoutes = [
         path: 'percenter',
         name: 'Center',
         component: () => import('@/views/Center'),
-        meta: { title: '个人中心', icon: 'dashboard', requireAuth: true }
+        meta: { title: '个人中心', icon: 'el-icon-s-promotion', requireAuth: true }
       }
     ]
   }

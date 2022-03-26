@@ -1,6 +1,4 @@
-import Vue from 'vue'
-
-Vue.filter('transformToChinese', (v) => {
+export default function transform(v) {
   let chinese = ''
   switch (v) {
     case 'date':
@@ -73,5 +71,4 @@ Vue.filter('transformToChinese', (v) => {
       chinese = v
   }
   return chinese
-})
-
+}
