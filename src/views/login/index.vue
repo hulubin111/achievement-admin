@@ -52,11 +52,11 @@
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
 
-      <div class="tips">
+      <!-- <div class="tips">
         <span>超级管理员</span>
         <span style="margin-right:20px;">username: admin</span>
         <span> password: 123</span>
-      </div>
+      </div> -->
 
     </el-form>
   </div>
