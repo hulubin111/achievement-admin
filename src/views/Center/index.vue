@@ -164,6 +164,7 @@ export default {
     async initPerInfo() {
       if (this.type === '2') {
         const result = await this.$API.student.getPerStuInfo(this.userid)
+
         this.userInfo = result
       } else {
         const result = await this.$API.teacher.getTeacherInfo(this.userid)

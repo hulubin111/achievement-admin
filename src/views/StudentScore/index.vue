@@ -68,7 +68,7 @@ export default {
       var myChart = echarts.init(this.$refs.box)
       myChart.setOption({
         title: {
-          text: 'xxx的体测成绩',
+          text: `${this.data.name}的体测成绩`,
           textStyle: {
             fontFamily: '楷体'
           }
