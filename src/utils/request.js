@@ -1,5 +1,6 @@
 import axios from 'axios'
-
+import nprogress from 'nprogress'
+import 'nprogress/nprogress.css'
 const request = axios.create({
   baseURL: '/api',
   timeout: 5000
@@ -8,6 +9,7 @@ const request = axios.create({
 // request interceptor
 request.interceptors.request.use(
   config => {
+    nprogress.start()
     return config
   },
   error => {
@@ -24,6 +26,7 @@ request.interceptors.response.use(
     if (response.status !== 200) {
       return Promise.reject(new Error('faile'))
     }
+    nprogress.done()
     return res
   },
   error => {
